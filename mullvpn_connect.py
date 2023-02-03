@@ -67,8 +67,10 @@ def get_account():
     create_info = subprocess.check_output(["mullvad", "account", "get"])
     if str(create_info) == "Not logged in on any account":
         is_logging = False
+        return False
     else:
         is_logging = True
+        return True
     
 
 def login(login_key):
